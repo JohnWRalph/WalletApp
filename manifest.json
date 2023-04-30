@@ -1,6 +1,6 @@
 {
-    "name": "Svelte Tailwind Chrome Extension",
-    "description": "Sample Extension using Svelte and Tailwind",
+    "name": "WalletApp",
+    "description": "Multichain Wallet App",
     "version": "1.0",
     "manifest_version": 3,
     "action": {
