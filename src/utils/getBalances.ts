@@ -17,7 +17,7 @@ function getBalances(walletAddress, network) {
     if (network === "Ethereum") {
 
 
-        const ethereumProvider = new ethers.providers.InfuraProvider('mainnet', 'b5f32cd516e94d3395a90e5ed9c59400');
+        const ethereumProvider = new ethers.InfuraProvider('mainnet', 'b5f32cd516e94d3395a90e5ed9c59400');
         // const address = "0xF02c1c8e6114b1Dbe8937a39260b5b0a374432bB";
         ethereumProvider.getBalance(walletAddress).then((balance) => {
             // convert a currency unit from wei to ether

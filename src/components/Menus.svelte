@@ -49,7 +49,7 @@
             </div>
         {:else}
             <div>
-                {#if $currentWallet.chain === "Ethereum"}
+                {#if $currentWallet && $currentWallet.chain === "Ethereum"}
                     <button
                         on:click={() =>
                             fetchNFTsByAddress($currentWallet.address).then(
@@ -74,8 +74,8 @@
                     >
                         Fetch NFTs</button
                     >
-                {/if}
-                {#if $currentWallet.chain === "Solana"}
+               
+                {:else if $currentWallet && $currentWallet.chain === "Solana"}
                     <button
                         on:click={() =>
                             fetchSolanaNfts($currentWallet.address).then(
@@ -100,7 +100,11 @@
                     >
                         Fetch NFTs</button
                     >
+                    {:else}
+                    Connect Wallet
                 {/if}
+              
+
             </div>
         {/if}
     {/if}
