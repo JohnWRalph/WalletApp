@@ -16,7 +16,7 @@
     import { Keypair } from "@solana/web3.js";
     import * as bs58 from "bs58";
     let tabs = ["Private Key", "Secret Recovery Phrase"];
-    let importWalletTabIndex = 1;
+    let importWalletTabIndex = 0;
     let importAddress;
     let importSRP;
     let importPrivateKey;
@@ -241,8 +241,10 @@
             <button
                 on:click={importWalletFromPhrase}
                 style="z-index:10000"
-                class="btn btn-accent">Import Wallet</button
+                class="btn btn-accent"
+                disabled>Import Wallet</button
             >
+            Feature only imports the first wallet under the mnemonic phrase for now. Use private key method.
         </label>
     </div>
 {/if}
