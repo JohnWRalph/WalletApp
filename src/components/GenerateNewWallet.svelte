@@ -32,8 +32,7 @@
             console.log(importWallet.path);
 
            
-            if (localStorage.getItem("wallets")) {
-            }
+            
             console.log(generatedWallet);
             const newWallet: Wallet = {
                 walletName: name,

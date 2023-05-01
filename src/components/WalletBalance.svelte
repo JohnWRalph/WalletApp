@@ -12,7 +12,7 @@
     // create an instance of the JSON RPC provider
     import getBalances from "../utils/getBalances";
     // const network = "homestead"; // use rinkeby testnet
-    const ethereumProvider = new ethers.providers.InfuraProvider(
+    const ethereumProvider = new ethers.InfuraProvider(
         "mainnet",
         "b5f32cd516e94d3395a90e5ed9c59400"
     );
