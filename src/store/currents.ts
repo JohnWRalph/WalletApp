@@ -6,7 +6,8 @@ const activeTabIndex = writable<number>(0);
 const storedWallets = JSON.parse(localStorage.getItem("wallets"))
 const currentSettingMenu = writable<string>("");
 const currentNetwork = writable<string>("");
-const currentWallet = writable<Wallet>(storedWallets[0] || "");
+
+const currentWallet = writable<Wallet>(null);
 
 const walletEthBalance = writable<string>("0");
 const walletLRCBalance = writable<string>("0");

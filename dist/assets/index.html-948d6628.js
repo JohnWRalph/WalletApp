@@ -1,0 +1,1 @@
+import{A as e}from"./App-67c8f72b.js";const n=document.getElementById("app");async function o(){const{count:t}=await chrome.storage.sync.get({count:0});new e({target:n,props:{count:t}})}document.addEventListener("DOMContentLoaded",o);
