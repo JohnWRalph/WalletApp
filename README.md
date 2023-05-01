@@ -16,3 +16,5 @@ How to setup:
     d. Pin the extension
 7. npm run dev (This must be on to render svelte components.  As of this time I have not been able to reflect svelte changes immediately without stop "npm run dev" and reinitializing it)
 8. Open the chrome extension. 
+
+For additional resources how this project was setup, go to the tutorial here: https://codegino.com/blog/svelte-chromium-extension
