@@ -1,4 +1,3 @@
-document.body.style.backgroundColor = "red";
 chrome.runtime.sendMessage(
   { greeting: "hello" },
   function(response) {
