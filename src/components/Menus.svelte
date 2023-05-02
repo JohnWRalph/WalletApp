@@ -28,6 +28,7 @@
     import fetchNFTsByAddress from "../utils/fetchNFTsByAddress";
     import WalletBalance from "./WalletBalance.svelte";
     import fetchSolanaNfts from "../utils/fetchSolanaNfts";
+    import UnlockLoopring from "./buttons/UnlockLoopring.svelte";
     currentWallet.set(wallets[0]);
     currentNetwork.set(networks[0]);
     let tabs = ["Tokens", "NFTs", "Swap", "Recent Activity"];
@@ -43,74 +44,62 @@
 {/if}
 <div class="nftTab">
     {#if $activeTabIndex == 1}
+        <div>
+            {#if $currentWallet && $currentWallet.chain === "Ethereum"}
+                <button
+                    on:click={() =>
+                        fetchNFTsByAddress($currentWallet.address).then(
+                            (data) => {
+                                // ToDo: Refactor
+                                function pushNFTsToCollection($nfts, data) {
+                                    if ($nfts && $nfts.length) {
+                                        $nfts = $nfts.concat(data);
+                                        $nfts.forEach(function (nft, index) {
+                                            nft.index = index;
+                                        });
+                                    } else {
+                                        nfts.set(data);
+                                    }
+                                }
+                                pushNFTsToCollection(nfts, data);
+                            }
+                        )}
+                >
+                    Fetch NFTs</button
+                >
+            {:else if $currentWallet && $currentWallet.chain === "Solana"}
+                <button
+                    on:click={() =>
+                        fetchSolanaNfts($currentWallet.address).then((data) => {
+                            // ToDo: Refactor
+                            function pushNFTsToCollection($nfts, data) {
+                                if ($nfts && $nfts.length) {
+                                    $nfts = $nfts.concat(data);
+                                    $nfts.forEach(function (nft, index) {
+                                        nft.index = index;
+                                    });
+                                } else {
+                                    nfts.set(data);
+                                }
+                            }
+                            pushNFTsToCollection(nfts, data);
+                        })}
+                >
+                    Fetch NFTs</button
+                >
+            {:else}
+                Connect Wallet
+            {/if}
+        </div>
         {#if $nfts}
             <div style="position:absolute; top:50px;">
                 <NfTview />
-            </div>
-        {:else}
-            <div>
-                {#if $currentWallet && $currentWallet.chain === "Ethereum"}
-                    <button
-                        on:click={() =>
-                            fetchNFTsByAddress($currentWallet.address).then(
-                                (data) => {
-                                    // ToDo: Refactor
-                                    function pushNFTsToCollection($nfts, data) {
-                                        if ($nfts && $nfts.length) {
-                                            $nfts = $nfts.concat(data);
-                                            $nfts.forEach(function (
-                                                nft,
-                                                index
-                                            ) {
-                                                nft.index = index;
-                                            });
-                                        } else {
-                                            nfts.set(data);
-                                        }
-                                    }
-                                    pushNFTsToCollection(nfts, data);
-                                }
-                            )}
-                    >
-                        Fetch NFTs</button
-                    >
-               
-                {:else if $currentWallet && $currentWallet.chain === "Solana"}
-                    <button
-                        on:click={() =>
-                            fetchSolanaNfts($currentWallet.address).then(
-                                (data) => {
-                                    // ToDo: Refactor
-                                    function pushNFTsToCollection($nfts, data) {
-                                        if ($nfts && $nfts.length) {
-                                            $nfts = $nfts.concat(data);
-                                            $nfts.forEach(function (
-                                                nft,
-                                                index
-                                            ) {
-                                                nft.index = index;
-                                            });
-                                        } else {
-                                            nfts.set(data);
-                                        }
-                                    }
-                                    pushNFTsToCollection(nfts, data);
-                                }
-                            )}
-                    >
-                        Fetch NFTs</button
-                    >
-                    {:else}
-                    Connect Wallet
-                {/if}
-              
-
             </div>
         {/if}
     {/if}
 </div>
 {#if $activeTabIndex == 2}
-    <div>content 3</div>
+    <UnlockLoopring/>
 {/if}
 
 {#if $activeTabIndex == 3}

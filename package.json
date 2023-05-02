@@ -32,7 +32,7 @@
     "alchemy-sdk": "^2.8.1",
     "bs58": "^5.0.0",
     "bs58check": "^3.0.1",
-    "ethers": "^6.0.0",
+    "ethers": "^6.3.0",
     "hdkey": "^2.1.0",
     "vite-plugin-node-stdlib-browser": "^0.2.1"
   }
