@@ -8,11 +8,17 @@
   import { currentSettingMenu } from "../store/currents";
   import Menus from "./Menus.svelte";
 
+function getStorage() {
+  console.log(localStorage);
+}
 
 </script>
 
 <Menus />
-
+<button 
+on:click={getStorage}
+style="z-index:100; position:absolute">Check storage</button>
+<button style="z-index:100; position:relative" class="btn" id="get-info">Get Info</button>
 
 <style global lang="postcss">
   @tailwind base;

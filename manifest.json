@@ -1,24 +1,33 @@
 {
-    "name": "WalletApp",
-    "description": "Multichain Wallet App",
-    "version": "1.0",
-    "manifest_version": 3,
-    "action": {
-      "default_popup": "src/popup/index.html"
-    },
-    "background": {
-      "service_worker": "background.js"
-    },
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["contentScript.ts"]
-      }
-    ],
-    "permissions": ["storage","activeTab"],
-    "chrome_url_overrides": {
-        "newtab": "src/new-tab/index.html"
-      }
-
+  "name": "WalletApp",
+  "description": "Multichain Wallet App",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "src/popup/index.html"
+  },
+  "background": {
+    "service_worker": "content-worker-loader.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "contentScript.ts"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs"
+    
+   
+  ],
+  "chrome_url_overrides": {
+    "newtab": "src/new-tab/index.html"
   }
-  
+
+}

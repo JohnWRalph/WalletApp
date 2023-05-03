@@ -22,7 +22,8 @@
   ],
   "permissions": [
     "storage",
-    "activeTab"
+    "activeTab",
+    "tabs"
   ],
   "chrome_url_overrides": {
     "newtab": "src/new-tab/index.html"

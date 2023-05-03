@@ -36,6 +36,7 @@
         {#each $wallets as wallet}
             <button
                 on:click={() => console.log(wallet)}
+                on:click={() => localStorage.setItem("currentWallet", JSON.stringify(wallet))}
                 on:click={() => currentWallet.set(wallet)}
                 on:click={()=> getBalances($currentWallet.address, $currentWallet.chain)}
                 on:click={() => walletsVisible.set(false)}
