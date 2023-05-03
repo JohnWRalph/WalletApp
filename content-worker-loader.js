@@ -1,4 +1,5 @@
 
+
 chrome.tabs.onActivated.addListener((tab) => {
 
   console.log(tab)
@@ -30,6 +31,7 @@ chrome.runtime.onMessage.addListener(request => {
           width: 400,
           height: 600,
           top: 0,
+          left:0
           
       }, () => {
           console.log("Opened popup!")

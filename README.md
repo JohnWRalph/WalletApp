@@ -20,6 +20,10 @@ How to setup:
 
 For additional resources how this project was setup, go to the tutorial here: https://codegino.com/blog/svelte-chromium-extension
 
+
+Adding functionality to your html page:
+1. the wallet looks for a class "customWallet" and adds an event Listener which will create a new window on click. add a button with the class "customWallet"
+
 Errors:
 
 1. "Waiting for service worker"
