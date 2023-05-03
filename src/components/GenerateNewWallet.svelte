@@ -22,14 +22,12 @@
 
     async function generateWallet(chain, name) {
         if (chain == "Ethereum") {
-            let generatedWallet;
+            // let generatedWallet;
             
             
-            const importWallet = ethers.Wallet.createRandom();
-            console.log(importWallet);
-            console.log(importWallet.path);
-            
-            console.log(importWallet.path);
+            const generatedWallet = ethers.Wallet.createRandom();
+            // console.log(importWallet);
+           
 
            
             
