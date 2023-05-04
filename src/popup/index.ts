@@ -1,12 +1,14 @@
 import "../app.css";
-import Counter from '../components/App.svelte';
+import App from '../components/App.svelte';
 
+import {getCurrentTab} from '../../utils';
+console.log(getCurrentTab())
 const target = document.getElementById('app');
 
 async function render() {
-  const { count } = await chrome.storage.sync.get({ count: 0 });
 
-  new Counter({ target, props: { count } });
+
+  new App({ target });
 
 
 }
